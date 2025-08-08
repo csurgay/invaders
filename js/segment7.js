@@ -58,7 +58,7 @@ class Segment7 {
     }
 
     draw(digit = this.digit) {
-        this.drawDigit(-6, 5, "rgba(80, 80, 80, 0.1)", digit);
+        this.drawDigit(-4, 3, "rgba(80, 80, 80, 0.1)", digit);
         this.drawDigit(0, 0, "rgba(0, 0, 0, 0.5)", digit);
     }
 }

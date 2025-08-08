@@ -79,7 +79,13 @@ class Display {
         }
         this.digits[6].digit = Display.livesDisplayText[this.lives];
         this.setMainRow(this.mainRowText);
-        ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
+
+        //ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(165, 167, 155, 0.8)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fill();
+        
         for (let i = 0; i < this.digits.length; i++) {
             this.digits[i].draw();
         }

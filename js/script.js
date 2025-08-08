@@ -6,6 +6,9 @@ canvas.addEventListener("click", (event) => {
     console.log(`Mouse position: (${x}, ${y})`);
     segment.push([x,y]);
 });
+document.addEventListener('dblclick', function(event) {
+    event.preventDefault();
+}, { passive: false });
 const buttonStart = document.getElementById('startButton');
 buttonStart.addEventListener("click", () => {
     display.restart();
