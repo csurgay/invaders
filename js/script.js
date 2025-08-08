@@ -6,6 +6,19 @@ canvas.addEventListener("click", (event) => {
     console.log(`Mouse position: (${x}, ${y})`);
     segment.push([x,y]);
 });
+const buttonStart = document.getElementById('startButton');
+buttonStart.addEventListener("click", () => {
+    display.restart();
+    segment.length = 0; // Clear the segment array
+});
+const buttonAim = document.getElementById('aimButton');
+buttonAim.addEventListener("click", () => {
+    display.stepAim();
+});
+const buttonShoot = document.getElementById('shootButton');
+buttonShoot.addEventListener("click", () => {
+    display.shoot();
+});
 const display = new Display();
 display.init();
 const segment = [];
