@@ -2,8 +2,6 @@ class Display {
     static livesDisplayText = [" ", "L1", "L2", "L3"];
     static delay = 1500;
     constructor() {
-        this.bg = new Image();
-        this.bg.src = 'rsc/background.png';
         this.mainRowText = "      ";
         this.digits = [];
         this.lastShift = Date.now();
@@ -80,13 +78,18 @@ class Display {
         this.digits[6].digit = Display.livesDisplayText[this.lives];
         this.setMainRow(this.mainRowText);
 
-        //ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.translate(bgw/2, bgh/2);
+        ctx.rotate(0.7*Math.PI/180);
+        ctx.translate(-bgw/2, -bgh/2);
+        ctx.drawImage(bg, 0, 0, bgw, bgh);
+        ctx.restore();
         ctx.beginPath();
-        ctx.fillStyle = 'rgba(165, 167, 155, 0.8)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(165, 167, 155, 1)';
+        ctx.roundRect(dx, dy, dw, dh, [10]);
         ctx.fill();
         
-        for (let i = 0; i < this.digits.length; i++) {
+        if (true) for (let i = 0; i < this.digits.length; i++) {
             this.digits[i].draw();
         }
     }
