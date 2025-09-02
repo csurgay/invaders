@@ -95,15 +95,17 @@ class Display {
             this.setMainRow(this.mainRowText);
         }
 
-        ctx.shadowBlur = 3;
-        ctx.shadowColor = "black";
         ctx.save();
         ctx.translate(bgw/2, bgh/2);
         ctx.rotate(0.7*Math.PI/180);
         ctx.translate(-bgw/2, -bgh/2);
+        ctx.shadowBlur = 0;
+        ctx.shadowColor = "white";
         ctx.drawImage(bg, 0, 0, bgw, bgh);
         ctx.restore();
         ctx.beginPath();
+        ctx.shadowBlur = 3;
+        ctx.shadowColor = "black";
         ctx.fillStyle = 'rgba(165, 167, 155, 1)';
         ctx.roundRect(dx, dy, dw, dh, [10]);
         ctx.fill();
